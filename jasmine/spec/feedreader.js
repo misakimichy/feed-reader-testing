@@ -9,25 +9,15 @@
  * to ensure they don't run until the DOM is ready.
  */
 $(function() {
-    /* This is our first test suite - a test suite just contains
-    * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
-    */
+   // Test suite for RSS feeds variable
     describe('RSS Feeds', function() {
-        /* This is our first test - it tests to make sure that the
-         * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
-         */
+        // Check allFeeds is defined and not empty
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
 
-
-        // Check each allFeeds has a URL defined and the URL is not empty.
+        // Check each allFeeds has a URL defined and the URL is not empty
         it('url defined', function() {
             for(let feed of allFeeds) {
                 expect(feed.url).toBeDefined();
@@ -35,7 +25,7 @@ $(function() {
             }
         });
 
-        // Check each allFeeds has a name defined and the name is not empty.
+        // Check each allFeeds has a name defined and the name is not empty
         it('name defined', function() {
             for(let feed of allFeeds) {
                 expect(feed.name).toBeDefined();
@@ -48,12 +38,12 @@ $(function() {
     describe('The menu', function() {
         const body = document.querySelector('body');
 
-        // Check the menu element is hidden by default. 
+        // Check the menu element is hidden by default
         it('is hidden', function() {
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
 
-         // Check the menu displays when clicked and it hides when clicked again.
+         // Check the menu displays when clicked and it hides when clicked again
         it('toggle menu', function() {
             const menu = document.querySelector('.menu-icon-link');
 
