@@ -9,6 +9,7 @@
  * to ensure they don't run until the DOM is ready.
  */
 $(function() {
+    const feedArea = document.querySelector('.feed');
    // Test suite for RSS feeds variable
     describe('RSS Feeds', function() {
         // Check allFeeds is defined and not empty
@@ -59,6 +60,7 @@ $(function() {
 
     // Test suite for init load feed
     describe('Initial Entries', function() {
+
         //  Wait till work is completed
         beforeEach(function(done) {
             loadFeed(0, done);
@@ -66,14 +68,36 @@ $(function() {
 
         // Check the load feed has at least one content
         it('load feed', function() {
-            const feedArea = document.querySelector('.feed');
+            
             expect(feedArea.children.length > 0).toBe(true);
         });
     });
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+    // Test suite for new feed
+    describe('New Feed Selection', function() {
+        const firstFeed = [];
+
+        // load feed and store the first feed 
+        beforeEach(function(done) {
+            // feed is loaded
+            loadFeed(0);
+
+            // the content of feed
+            Array.from(feedArea.children).forEach(content => {
+                firstFeed.push(content.innerText);
+            });
+
+            // load again
+            loadFeed(1, done);
+
+        });
+        // Compare items against first feed
+        it('content changes', function() {
+            const secondFeed = [];
+            Array.from(feedArea.children).forEach((content, index) => {
+                secondFeed.push(content.innerText);
+                expect(secondFeed !== firstFeed[index]).toBe(true);
+            });
+        });
+    });    
 }());
