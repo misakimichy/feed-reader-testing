@@ -54,11 +54,7 @@ $(function() {
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
+         // Check the menu displays when clicked and it hides when clicked again.
         it('toggle menu', function() {
             const menu = document.querySelector('.menu-icon-link');
 
