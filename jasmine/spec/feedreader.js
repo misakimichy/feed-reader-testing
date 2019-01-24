@@ -44,8 +44,7 @@ $(function() {
         });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
+    // Test suite for menu function 
     describe('The menu', function() {
         const body = document.querySelector('body');
 
@@ -59,24 +58,30 @@ $(function() {
             const menu = document.querySelector('.menu-icon-link');
 
             // simulate click event to menu
+            // first click
             menu.click();
             expect(body.classList.contains('menu-hidden')).toBe(false);
+            // second click
             menu.click();
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
+    // Test suite for init load feed
+    describe('Initial Entries', function() {
+        //  Wait till work is completed
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
 
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+        // Check the load feed has at least one content
+        it('load feed', function() {
+            const feedArea = document.querySelector('.feed');
+            expect(feedArea.children.length > 0).toBe(true);
+        });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
-
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
