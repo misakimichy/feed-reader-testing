@@ -36,7 +36,7 @@ $(function() {
     });
 
     // Test suite for menu function 
-    describe('The menu', function() {
+    describe('The Menu', function() {
         const body = document.querySelector('body');
 
         // Check the menu element is hidden by default
