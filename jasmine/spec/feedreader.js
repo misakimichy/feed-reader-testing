@@ -19,7 +19,7 @@ $(function() {
         });
 
         // Check each allFeeds has a URL defined and the URL is not empty
-        it('url defined', function() {
+        it('define url', function() {
             for(let feed of allFeeds) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
@@ -27,7 +27,7 @@ $(function() {
         });
 
         // Check each allFeeds has a name defined and the name is not empty
-        it('name defined', function() {
+        it('define name', function() {
             for(let feed of allFeeds) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
@@ -92,7 +92,7 @@ $(function() {
 
         });
         // Compare items against first feed
-        it('content changes', function() {
+        it('change content', function() {
             const secondFeed = [];
             Array.from(feedArea.children).forEach((content, index) => {
                 secondFeed.push(content.innerText);
