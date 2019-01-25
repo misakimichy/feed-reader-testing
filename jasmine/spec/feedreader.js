@@ -51,10 +51,10 @@ $(function() {
             // simulate click event to menu
             // first click
             menu.click();
-            expect(body.classList.contains('menu-hidden')).toBe(false);
+            expect(body.hasClass.contains('menu-hidden')).toBe(false);
             // second click
             menu.click();
-            expect(body.classList.contains('menu-hidden')).toBe(true);
+            expect(body.hasClass.contains('menu-hidden')).toBe(true);
         });
     });
 
