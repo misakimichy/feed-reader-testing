@@ -68,8 +68,8 @@ $(function() {
 
         // Check the load feed has at least one content
         it('load feed', function() {
-            
-            expect(feedArea.children.length > 0).toBe(true);
+            const entry = document.querySelectorAll('.feed .entry');
+            expect(entry.length).toBeGreaterThan(0);
         });
     });
 
