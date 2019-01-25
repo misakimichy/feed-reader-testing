@@ -80,17 +80,18 @@ $(function() {
         // load feed and store the first feed 
         beforeEach(function(done) {
             // feed is loaded
-            loadFeed(0);
+            loadFeed(0, function() { 
 
-            // the content of feed
-            Array.from(feedArea.children).forEach(content => {
-                firstFeed.push(content.innerText);
-            });
-
-            // load again
-            loadFeed(1, done);
-
+                // the content of feed
+                Array.from(feedArea.children).forEach(content => {
+                    firstFeed.push(content.innerText);
+                });
+                
+                // load again
+                loadFeed(1, done);
+            }); 
         });
+
         // Compare items against first feed
         it('change content', function() {
             const secondFeed = [];
